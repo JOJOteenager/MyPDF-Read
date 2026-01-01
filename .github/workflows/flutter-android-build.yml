@@ -17,13 +17,17 @@ jobs:
   build-release:
     name: Build Release APK
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: pdf_reader_flutter
     
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    
+    - name: Check directory structure
+      run: |
+        echo "Current directory: $(pwd)"
+        ls -la
+        echo "---"
+        ls -la pdf_reader_flutter/ || echo "pdf_reader_flutter not found"
     
     - name: Setup Java 17
       uses: actions/setup-java@v4
@@ -36,11 +40,9 @@ jobs:
     
     - name: Accept Android Licenses
       run: yes | sdkmanager --licenses || true
-      working-directory: .
     
     - name: Install Android SDK 35
       run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
-      working-directory: .
     
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -50,21 +52,26 @@ jobs:
         cache: true
     
     - name: Create local.properties
+      working-directory: pdf_reader_flutter
       run: |
         mkdir -p android
         echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
         echo "sdk.dir=$ANDROID_SDK_ROOT" >> android/local.properties
     
     - name: Get dependencies
+      working-directory: pdf_reader_flutter
       run: flutter pub get
     
     - name: Analyze code
+      working-directory: pdf_reader_flutter
       run: flutter analyze --no-fatal-infos || true
     
     - name: Build Release APK
+      working-directory: pdf_reader_flutter
       run: flutter build apk --release
     
     - name: Rename APK with version
+      working-directory: pdf_reader_flutter
       run: |
         VERSION=$(grep 'version:' pubspec.yaml | sed 's/version: //' | cut -d'+' -f1)
         mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/pdf-reader-v${VERSION}-release.apk
@@ -80,9 +87,6 @@ jobs:
     name: Build Debug APK
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
-    defaults:
-      run:
-        working-directory: pdf_reader_flutter
     
     steps:
     - name: Checkout
@@ -99,11 +103,9 @@ jobs:
     
     - name: Accept Android Licenses
       run: yes | sdkmanager --licenses || true
-      working-directory: .
     
     - name: Install Android SDK 35
       run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
-      working-directory: .
     
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -113,15 +115,18 @@ jobs:
         cache: true
     
     - name: Create local.properties
+      working-directory: pdf_reader_flutter
       run: |
         mkdir -p android
         echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
         echo "sdk.dir=$ANDROID_SDK_ROOT" >> android/local.properties
     
     - name: Get dependencies
+      working-directory: pdf_reader_flutter
       run: flutter pub get
     
     - name: Build Debug APK
+      working-directory: pdf_reader_flutter
       run: flutter build apk --debug
     
     - name: Upload Debug APK

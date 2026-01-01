@@ -1,0 +1,4 @@
+# file: C:\Users\xiaoxiaolan\Desktop\pdf阅读器\huawei_pdf_reader\src\huawei_pdf_reader\document_processor.py
+# hypothesis_version: 6.148.7
+
+[1.0, 180, 270, 360, 595, 842, '.doc', '.docx', '.pdf', 'PDF文档没有页面', 'docx', 'helv', 'pdf', 'png', 'text', 'title', '文档未打开', '无法删除最后一页', '未指定保存路径']

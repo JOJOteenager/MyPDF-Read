@@ -1,0 +1,4 @@
+# file: C:\Users\xiaoxiaolan\Desktop\pdf阅读器\huawei_pdf_reader\src\huawei_pdf_reader\backup_service.py
+# hypothesis_version: 6.148.7
+
+['%Y%m%d_%H%M%S', '*', '1.0', '1.0.0', 'access_token', 'annotations', 'app_version', 'backup_*.zip', 'backups', 'bookmarks', 'contents', 'created_at', 'database.json', 'document_id', 'documents', 'filename', 'folders', 'manifest.json', 'path', 'plugins', 'r', 'refresh_token', 'settings.json', 'size', 'tags', 'utf-8', 'version', 'w', '下载云端备份失败', '云端没有可用的备份', '仅在WiFi下备份，当前无WiFi连接', '创建本地备份失败', '无效的备份文件：缺少清单', '未认证OneDrive', '未认证百度网盘', '本地备份不需要绑定账号', '没有可用的本地备份']

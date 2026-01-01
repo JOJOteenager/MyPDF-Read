@@ -1,0 +1,88 @@
+# 自动发布 Release
+name: Release APK
+
+on:
+  push:
+    tags:
+      - 'v*'  # 当推送 v1.0.0 这样的 tag 时触发
+
+defaults:
+  run:
+    working-directory: pdf_reader_flutter
+
+jobs:
+  release:
+    name: Build and Release APK
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Setup Java 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+    
+    - name: Accept Android Licenses
+      run: yes | sdkmanager --licenses || true
+    
+    - name: Install Android SDK 35
+      run: |
+        sdkmanager "platforms;android-35" "build-tools;35.0.0"
+    
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.24.0'
+        channel: 'stable'
+        cache: true
+    
+    - name: Create local.properties
+      run: |
+        echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+        echo "sdk.dir=$ANDROID_SDK_ROOT" >> android/local.properties
+    
+    - name: Get dependencies
+      run: flutter pub get
+    
+    - name: Build Release APK
+      run: flutter build apk --release
+    
+    - name: Get version from tag
+      id: get_version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      working-directory: .
+    
+    - name: Rename APK
+      run: |
+        mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/pdf-reader-${{ steps.get_version.outputs.VERSION }}.apk
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: PDF阅读器 ${{ steps.get_version.outputs.VERSION }}
+        body: |
+          ## PDF阅读器 ${{ steps.get_version.outputs.VERSION }}
+          
+          ### 功能特性
+          - PDF 和 Word 文档阅读
+          - 手写笔注释支持
+          - 繁简中文转换
+          - 英汉翻译
+          - OCR 文字识别
+          
+          ### 安装说明
+          1. 下载 APK 文件
+          2. 在手机上允许安装未知来源应用
+          3. 安装 APK
+        files: |
+          pdf_reader_flutter/build/app/outputs/flutter-apk/pdf-reader-${{ steps.get_version.outputs.VERSION }}.apk
+        draft: false
+        prerelease: false

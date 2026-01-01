@@ -1,0 +1,4 @@
+# file: C:\Users\xiaoxiaolan\Desktop\pdf阅读器\huawei_pdf_reader\src\huawei_pdf_reader\__init__.py
+# hypothesis_version: 6.148.7
+
+['0.1.0', 'Annotation', 'BackupConfig', 'BackupProvider', 'Bookmark', 'ConversionDirection', 'CorruptedFileError', 'Database', 'Developer', 'DocumentEntry', 'DocumentError', 'DocumentInfo', 'FileNotFoundError', 'Folder', 'IDocumentRenderer', 'MagnifierAction', 'MagnifierConfig', 'MagnifierResult', 'PDFRenderer', 'PageInfo', 'PenType', 'PluginInfo', 'ReadingConfig', 'Settings', 'Stroke', 'StrokePoint', 'StylusConfig', 'Tag', 'ToolsConfig', 'TouchEvent', 'TouchType', 'TranslationConfig', 'TranslationDirection', 'TranslationResult', 'WordRenderer', '__author__', '__version__', 'create_renderer']

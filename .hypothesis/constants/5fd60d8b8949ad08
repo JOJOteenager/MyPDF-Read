@@ -1,0 +1,4 @@
+# file: C:\Users\xiaoxiaolan\Desktop\pdf阅读器\huawei_pdf_reader\src\huawei_pdf_reader\translation_service.py
+# hypothesis_version: 6.148.7
+
+[1.0, 500, 32768, 65536, '.,!?;:\'"', '52000', '52001', '52002', '52003', '54000', '54001', '54003', '54004', '54005', '58000', '58001', '58002', '90107', 'appid', 'book', 'chinese', 'convert', 'document', 'dst', 'en', 'english', 'error_code', 'file', 'from', 'hello', 'page', 'paper', 'pen', 'q', 'read', 'salt', 'sign', 'simplified', 'text', 'to', 'traditional', 'trans_result', 'translate', 'utf-8', 'world', 'write', 'zh', '世界', '中文', '书', '你好', '写', '客户端 IP 非法', '必填参数为空', '成功', '文件', '文本', '文档', '服务当前已关闭', '未授权用户，请检查 APP ID', '笔', '签名错误，请检查密钥', '简体', '系统错误，请重试', '繁体', '纸', '网络不可用，请检查连接', '翻译', '翻译服务不可用', '翻译服务未配置，请设置 API 凭证', '翻译结果为空', '英文', '认证未通过或未生效', '访问频率受限，请降低调用频率', '译文语言方向不支持', '请求超时，请检查网络连接', '请求超时，请重试', '账户余额不足', '转换', '输入文本为空', '阅读', '页面']

@@ -1,0 +1,4 @@
+# file: C:\Users\xiaoxiaolan\Desktop\pdf阅读器\huawei_pdf_reader\src\huawei_pdf_reader\app.py
+# hypothesis_version: 6.148.7
+
+['.huawei_pdf_reader', 'Application', 'annotation_engine', 'app.db', 'backup_service', 'backups', 'chinese_converter', 'config', 'database', 'en_to_zh', 'file_manager', 'huawei_pdf_reader', 'magnifier', 'mock', 'ocr_engine', 'palm_rejection', 'pdf_renderer', 'plugin_manager', 'plugins', 'settings', 't2s', 'translation_service', 'word_renderer']

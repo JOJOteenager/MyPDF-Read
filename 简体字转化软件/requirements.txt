@@ -1,0 +1,7 @@
+PyQt6>=6.4.0
+python-docx>=0.8.11
+opencc-python-reimplemented>=0.1.7
+pytest>=7.0.0
+hypothesis>=6.0.0
+pytest-qt>=4.0.0
+pyinstaller>=6.0.0

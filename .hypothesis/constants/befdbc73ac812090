@@ -1,0 +1,4 @@
+# file: C:\Users\xiaoxiaolan\Desktop\pdf阅读器\huawei_pdf_reader\src\huawei_pdf_reader\plugin_manager.py
+# hypothesis_version: 6.148.7
+
+['.py', '.zip', 'annotation_read', 'annotation_write', 'author', 'description', 'document_read', 'document_write', 'entry_point', 'error_count', 'events', 'id', 'info', 'is_loaded', 'last_error', 'level', 'max_errors', 'message', 'name', 'network', 'permissions', 'permissions字段必须是数组', 'plugin.json', 'plugin_id', 'r', 'settings_read', 'settings_write', 'should_disable', 'storage', 'timestamp', 'utf-8', 'version', '入口点必须是.py文件', '插件未加载', '插件模块中未找到IPlugin实现类', '无效的zip文件', '无法加载插件模块', '无法读取插件清单']

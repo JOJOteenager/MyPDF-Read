@@ -1,0 +1,4 @@
+# file: C:\Users\xiaoxiaolan\Desktop\pdf阅读器\huawei_pdf_reader\src\huawei_pdf_reader\database.py
+# hypothesis_version: 6.148.7
+
+[' AND is_deleted = 0', 'SELECT * FROM tags', 'VACUUM', 'annotations', 'author', 'bookmarks', 'color', 'created_at', 'data', 'description', 'document_id', 'documents', 'enabled', 'entry_point', 'file_type', 'folder_id', 'folders', 'id', 'installed_at', 'is_deleted', 'modified_at', 'name', 'page_num', 'parent_id', 'path', 'permissions', 'plugins', 'size', 'tags', 'thumbnail', 'title', 'value', 'version']

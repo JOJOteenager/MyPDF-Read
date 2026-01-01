@@ -11,16 +11,15 @@ on:
     branches: [ main, master ]
     paths:
       - 'pdf_reader_flutter/**'
-  workflow_dispatch:  # 允许手动触发
-
-defaults:
-  run:
-    working-directory: pdf_reader_flutter
+  workflow_dispatch:
 
 jobs:
   build-release:
     name: Build Release APK
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: pdf_reader_flutter
     
     steps:
     - name: Checkout
@@ -37,10 +36,11 @@ jobs:
     
     - name: Accept Android Licenses
       run: yes | sdkmanager --licenses || true
+      working-directory: .
     
     - name: Install Android SDK 35
-      run: |
-        sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      working-directory: .
     
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -80,6 +80,9 @@ jobs:
     name: Build Debug APK
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
+    defaults:
+      run:
+        working-directory: pdf_reader_flutter
     
     steps:
     - name: Checkout
@@ -96,10 +99,11 @@ jobs:
     
     - name: Accept Android Licenses
       run: yes | sdkmanager --licenses || true
+      working-directory: .
     
     - name: Install Android SDK 35
-      run: |
-        sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      working-directory: .
     
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
